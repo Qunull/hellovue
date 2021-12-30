@@ -1,28 +1,31 @@
 <template>
-  <!--  <img alt="Vue logo" src="./assets/logo.png">-->
-  <!--  <HelloWorld msg="Welcome to Your Vue.js App"/>-->
-  <!--  <MyVue></MyVue>-->
-  <!--  <Nav></Nav>-->
-  <!--  <News></News>-->
-  <ToDoList></ToDoList>
+  <div id="app">
+    <div><!--   1.支持路由 2.点击内容的时候 跳转到该路由对应的组件中-->
+      <!--      <router-link to="/nav">导航</router-link>
+         &&
+            <router-link to="/ToDoList">任务列表</router-link>-->
+      <span @click="toNav()"> 导航</span> && <span @click="toDoList()">任务列表</span>
+    </div>
+    <!-- 用路由配置的页面可以显示在此位置-->
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-/*import HelloWorld from './components/HelloWorld.vue'*/
-/*import MyVue from "@/components/MyVue";*/
-/*import Nav from "@/components/Nav";*/
-/*import News from "@/components/News";*/
-import ToDoList from "@/components/ToDoList";
+
 
 export default {
   name: 'App',
-  components: {
-    ToDoList
-    /* HelloWorld,*/
-    /*MyVue,*/
-    /*Nav*/
-    /*News*/
+  components: {},
+  methods: {
+    //编程式路由
+    toNav(){
+    this.$router.push({path:"Nav"});
+  },
+  toDoList() {//replace不会留下历史记录
+    this.$router.replace({path: "ToDoList"});
   }
+}
 }
 </script>
 

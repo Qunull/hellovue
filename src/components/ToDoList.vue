@@ -12,6 +12,7 @@
     </ul>
   </div>
   <input v-model="aaa" type="text"> <input type="button" value="添加" @click="add(),count1()">
+  <input type="button" value="返回" @click="back()">
 </template>
 
 <script>
@@ -60,6 +61,10 @@ export default {
           //this.a.$remove
         }
       }
+    },
+    back(){
+      //使用路由 返回操作
+      this.$router.back();
     }
   }
 }
